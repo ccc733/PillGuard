@@ -1,0 +1,95 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "STM32 Debug (OpenOCD)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Debug/yao_he002.elf",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "arm-none-eabi-gdb",
+            "miDebuggerServerAddress": "localhost:3333",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Reset target and halt",
+                    "text": "monitor reset halt",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Load firmware to target",
+                    "text": "load",
+                    "ignoreFailures": false
+                }
+            ],
+            "preLaunchTask": "Build and Flash",
+            "serverStarted": "Info : Listening on port 3333 for gdb connections",
+            "filterStderr": true,
+            "filterStdout": false,
+            "serverLaunchTimeout": 10000,
+            "debugServerPath": "openocd",
+            "debugServerArgs": "-f interface/stlink.cfg -f target/stm32g4x.cfg",
+            "customLaunchSetupCommands": [
+                {
+                    "text": "target remote localhost:3333"
+                },
+                {
+                    "text": "file ${workspaceFolder}/build/Debug/yao_he002.elf"
+                },
+                {
+                    "text": "monitor reset halt"
+                },
+                {
+                    "text": "load"
+                }
+            ],
+            "launchCompleteCommand": "exec-continue",
+            "visualizerFile": "${workspaceFolder}/.vscode/stm32_peripherals.xml"
+        },
+        {
+            "name": "STM32 Flash Only",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Debug/yao_he002.elf",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "arm-none-eabi-gdb",
+            "miDebuggerServerAddress": "localhost:3333",
+            "setupCommands": [
+                {
+                    "description": "Reset and load firmware",
+                    "text": "monitor reset halt",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Flash firmware",
+                    "text": "load",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Run firmware",
+                    "text": "continue",
+                    "ignoreFailures": false
+                }
+            ],
+            "preLaunchTask": "Build and Flash",
+            "serverStarted": "Info : Listening on port 3333 for gdb connections",
+            "debugServerPath": "openocd",
+            "debugServerArgs": "-f interface/stlink.cfg -f target/stm32g4x.cfg",
+            "launchCompleteCommand": "exec-run"
+        }
+    ]
+}

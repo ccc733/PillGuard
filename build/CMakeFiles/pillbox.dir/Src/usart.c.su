@@ -1,0 +1,10 @@
+C:/Users/csr/Documents/yao_he002/Src/usart.c:45:19:UART1_Tx_Safe	24	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:63:6:MX_USART1_UART_Init	8	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:95:6:MX_USART2_UART_Init	8	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:126:6:HAL_UART_MspInit	72	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:222:6:HAL_UART_MspDeInit	16	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:280:6:HAL_UART_RxCpltCallback	24	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:322:6:HAL_UART_TxCpltCallback	16	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:331:6:HAL_UART_ErrorCallback	16	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:353:6:LU6288_SendString	16	static
+C:/Users/csr/Documents/yao_he002/Src/usart.c:358:6:LU6288_SendVoice	16	static

@@ -1,0 +1,44 @@
+/* 全局字体大小 */
+body {
+    font-size: 16px;  /* 默认通常是 14px 左右，根据需要调整 */
+}
+
+/* 标题字体大小 */
+h1 {
+    font-size: 2.2rem;  /* h1 标题 */
+}
+h2 {
+    font-size: 1.8rem;  /* h2 标题 */
+}
+h3 {
+    font-size: 1.5rem;  /* h3 标题 */
+}
+
+/* 段落文本 */
+p {
+    font-size: 16px;
+}
+
+/* 代码块字体大小 */
+pre, code {
+    font-size: 16px;  /* 代码块通常需要稍小的字体 */
+}
+
+/* 导航栏文本 */
+div.sphinxsidebar h3 {
+    font-size: 1.2rem;  /* 侧边栏标题 */
+}
+div.sphinxsidebar p, div.sphinxsidebar ul {
+    font-size: 15px;  /* 侧边栏内容 */
+}
+
+/* 禁止代码块中注释的斜体样式 */
+.highlight .c,          /* 单行注释 */
+.highlight .cm,         /* 多行注释 */
+.highlight .c1,         /* 单行注释（部分语法高亮器） */
+.highlight .cp,         /* 文档注释（如 Python 的 """ 注释） */
+.highlight .cpf,        /* 文档注释片段 */
+.highlight .cs          /* 特殊注释（如 #! 声明） */
+{
+    font-style: normal !important;  /* 强制取消斜体 */
+}

@@ -1,0 +1,7 @@
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:12:13:I2C3_ShortDelay	16	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:19:22:I2C3_ReadSCL	8	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:24:22:I2C3_ReadSDA	8	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:36:6:I2C3_BusRecover	32	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:89:6:MX_I2C3_Init	16	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:133:6:HAL_I2C_MspInit	48	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:155:6:HAL_I2C_MspDeInit	16	static

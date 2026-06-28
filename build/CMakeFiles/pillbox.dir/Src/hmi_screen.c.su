@@ -1,0 +1,6 @@
+C:/Users/csr/Documents/yao_he002/Src/hmi_screen.c:44:26:UART1_Tx_Protected	24	static
+C:/Users/csr/Documents/yao_he002/Src/hmi_screen.c:57:6:HMI_SendRaw	16	static
+C:/Users/csr/Documents/yao_he002/Src/hmi_screen.c:67:6:HMI_SendPage	48	static
+C:/Users/csr/Documents/yao_he002/Src/hmi_screen.c:78:6:HMI_SetText	180	static
+C:/Users/csr/Documents/yao_he002/Src/hmi_screen.c:104:6:HMI_Init	4	static
+C:/Users/csr/Documents/yao_he002/Src/hmi_screen.c:115:6:HMI_ParseByte	24	static

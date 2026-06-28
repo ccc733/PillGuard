@@ -1,0 +1,89 @@
+
+/* 设置宽度 */
+.wy-nav-content {
+    max-width: none;
+}
+
+/* 设置字体 */
+body{
+    font-family:"Noto Sans SC";
+}
+
+/* 代码块字体 */
+pre, code {
+    font-family:"Noto Sans SC";
+}
+
+.my-non-italic-code.comment {
+   font-style: normal!important;
+}
+
+
+
+/* 点击过的链接颜色 */
+a:visited {
+    color: #3091d1
+}
+
+
+/* 侧边栏栏目导航字的颜色 */
+.wy-menu-vertical a {
+    line-height: 18px;
+    padding: .4045em 1.618em;
+    display: block;
+    position: relative;
+    font-size: 90%;
+    color: #fff
+}
+
+
+/* 侧边栏顶部颜色 */
+.wy-side-nav-search {
+    display: block;
+    width: 300px;
+    padding: .809em;
+    margin-bottom: .809em;
+    z-index: 200;
+    background-color: #2472a4;
+    text-align: center;
+    color: #fff
+}
+
+/* 版本号颜色 */
+.wy-side-nav-search>div.version {
+    margin-top: -.4045em;
+    margin-bottom: .809em;
+    font-weight: 400;
+    color: #fff
+}
+
+/* 搜索框 */
+.wy-side-nav-search input[type=text] {
+    width: 100%;
+    border-radius: 50px;
+    padding: 6px 12px;
+    border-color: #2472a4
+}
+
+
+
+
+/* 侧边栏顶部字的颜色 */
+.wy-side-nav-search .wy-dropdown>a,
+.wy-side-nav-search>a {
+    color: #fff;
+    font-size: 100%;
+    font-weight: 700;
+    display: inline-block;
+    padding: 4px 6px;
+    margin-bottom: .809em;
+    max-width: 100%
+}
+
+
+
+
+
+
+
+

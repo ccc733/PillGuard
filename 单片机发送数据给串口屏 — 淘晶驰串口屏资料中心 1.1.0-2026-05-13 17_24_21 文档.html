@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://wiki2.tjc1688.com/debug/usart_protocol/mcu2tjc.html -->
+<html class="writer-html5" lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17:24:21 文档</title>
+      <link rel="stylesheet" href="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/pygments.css" type="text/css">
+      <link rel="stylesheet" href="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/theme.css" type="text/css">
+      <link rel="stylesheet" href="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/rtd_sphinx_search.min.css" type="text/css">
+      <link rel="stylesheet" href="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/custom.css" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/documentation_options.js.下载"></script>
+        <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/jquery.js.下载"></script>
+        <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/underscore.js.下载"></script>
+        <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/_sphinx_javascript_frameworks_compat.js.下载"></script>
+        <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/doctools.js.下载"></script>
+        <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/translations.js.下载"></script>
+        <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/rtd_sphinx_search.min.js.下载"></script>
+        <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/custom.js.下载"></script>
+    <script src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/theme.js.下载"></script>
+    <link rel="index" title="索引" href="http://wiki2.tjc1688.com/genindex.html">
+    <link rel="search" title="搜索" href="http://wiki2.tjc1688.com/search.html">
+    <link rel="next" title="串口屏发送数据给单片机" href="http://wiki2.tjc1688.com/debug/usart_protocol/tjc2mcu.html">
+    <link rel="prev" title="串口屏通讯协议" href="http://wiki2.tjc1688.com/debug/usart_protocol/index.html">
+    <link href="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/style.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- <style>
+      a:link {color: #3091d1}
+      a:visited {color: #3091d1}
+      a:hover {color: #3091d1}
+      a:active {color: #3091d1}
+  </style> --> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+            <a href="http://wiki2.tjc1688.com/index.html" class="icon icon-home"> 淘晶驰串口屏资料中心
+            <img src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/tjc.png" class="logo" alt="Logo">
+          </a>
+              <div class="version">
+                1.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="http://wiki2.tjc1688.com/search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">淘晶驰教程</span></p>
+<ul class="current" aria-expanded="true">
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/start/index.html">快速入门</a></li>
+<li class="toctree-l1 current" aria-expanded="true"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/index.html"><button class="toctree-expand" title="Open/close menu"></button>串口屏调试</a><ul class="" aria-expanded="false">
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/simulator/index.html">模拟器调试基础知识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/connect_ttl.html">和USB转TTL的接线说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/connect_mcu.html">和单片机的接线说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/base/index.html">联机调试基础知识</a></li>
+<li class="toctree-l2 current" aria-expanded="true"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/usart_protocol/index.html"><button class="toctree-expand" title="Open/close menu"></button>串口屏通讯协议</a><ul class="" aria-expanded="false">
+<li class="toctree-l3 current" aria-expanded="true"><a class="reference internal current" href="http://wiki2.tjc1688.com/debug/usart_protocol/mcu2tjc.html#" aria-expanded="true"><button class="toctree-expand" title="Open/close menu"></button>单片机发送数据给串口屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/usart_protocol/mcu2tjc.html#id2">使用淘晶驰协议控制串口屏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/usart_protocol/mcu2tjc.html#id3">单片机使用其他协议控制串口屏</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/usart_protocol/tjc2mcu.html">串口屏发送数据给单片机</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/debug_with_sscom.html">串口助手软件(sscom)和屏幕联调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/debug_with_vspd.html">串口助手软件(sscom)和串口屏模拟器联调1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/debug_with_vspd2.html">串口助手软件(sscom)和串口屏模拟器联调2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/other_uart_assistant/index.html">其他串口助手</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/stm32/index.html">与stm32单片机联调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/timcu/index.html">与TI（德州仪器）单片机联调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/arduino/index.html">与arduino联调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/micropython/index.html">与MicroPython联调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://wiki2.tjc1688.com/debug/python/index.html">与python联调</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/widgets/index.html">控件详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/commands/index.html">基本指令集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/variables/index.html">系统变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/grammar/index.html">书写语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/return/index.html">串口屏返回数据格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/advanced/index.html">串口屏高级应用详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/download/index.html">资料下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/video.html">视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/QA/index.html">常见问题</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">产品选型和规格书</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/product/index.html">产品选型和规格书</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">电赛专题</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http://wiki2.tjc1688.com/nuedc/index.html">入门</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="http://wiki2.tjc1688.com/index.html">淘晶驰串口屏资料中心</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="http://wiki2.tjc1688.com/index.html" class="icon icon-home"></a> »</li>
+          <li><a href="http://wiki2.tjc1688.com/debug/index.html">串口屏调试</a> »</li>
+          <li><a href="http://wiki2.tjc1688.com/debug/usart_protocol/index.html">串口屏通讯协议</a> »</li>
+      <li>单片机发送数据给串口屏</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>单片机发送数据给串口屏<a class="headerlink" href="http://wiki2.tjc1688.com/debug/usart_protocol/mcu2tjc.html#id1" title="此标题的永久链接"></a></h1>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>以下展示的单片机代码均为单片机已经配置了printf重定向到串口（即通过printf打印的数据就被发送到串口）的情况下使用的。</p>
+</div>
+<section id="id2">
+<h2>使用淘晶驰协议控制串口屏<a class="headerlink" href="http://wiki2.tjc1688.com/debug/usart_protocol/mcu2tjc.html#id2" title="此标题的永久链接"></a></h2>
+<p>例如main页面有一个文本控件t0，我们要让t0显示“淘晶驰”，则通过单片机发送main.t0.txt="淘晶驰"，然后发送3个0xff作为结束符，注意，结束符是16进制的0xff</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s2">"main.t0.txt=</span><span class="se">\"</span><span class="s2">淘晶驰</span><span class="se">\"\xff\xff\xff</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>使用单片机发出的数据如下所示</p>
+<img alt="../../_images/usart_protocol_1.jpg" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/usart_protocol_1.jpg">
+<p>如果是setting页面有一个数字控件n0，我们要让n0显示为100，则通过单片机发送</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s2">"setting.n0.val=100</span><span class="se">\xff\xff\xff</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>使用单片机发出的数据如下所示</p>
+<img alt="../../_images/usart_protocol_2.jpg" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/usart_protocol_2.jpg">
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>建议单片机仅操作串口屏的全局变量，例如main.t0.txt=”淘晶驰”，而不是仅仅使用t0.txt=”淘晶驰”，这将会减少很多问题。如何将控件设置为全局请参考 <a class="reference internal" href="http://wiki2.tjc1688.com/grammar/global_variable.html#id1"><span class="std std-ref">跨页面赋值，全局变量操作</span></a></p>
+</div>
+<p>如果是program.s中使用int定义的整形，例如sys0，我们要让sys0显示为123，则通过单片机发送</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>program.s中使用int定义的整形均为全局变量，目前仅能定义int类型，无法定义其他类型（如字符串，浮点数等），int定义需放在其他代码之前，否则会报错。</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s2">"sys0=123</span><span class="se">\xff\xff\xff</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>使用单片机发出的数据如下所示</p>
+<img alt="../../_images/usart_protocol_6.jpg" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/usart_protocol_6.jpg">
+<p>跳转页面时，例如跳转到main页面，发送的是page main，单片机发出的数据如下</p>
+<img alt="../../_images/usart_protocol_7.jpg" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/usart_protocol_7.jpg">
+<p>可以在上位机选中控件后查看控件的属性，选中每个属性后都能在底部看到对应的注释，例如txt属性，代表“字符内容”</p>
+<img alt="../../_images/usart_protocol_3.jpg" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/usart_protocol_3.jpg">
+<p>对于数字控件来说，val属性就代表了数字控件将会显示的数值</p>
+<img alt="../../_images/usart_protocol_4.jpg" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/usart_protocol_4.jpg">
+<p>并不是每个属性都能通过指令进行修改，只有绿色的属性是可以通过指令修改的，黑色属性是不允许通过指令进行修改的</p>
+<p>黑色属性是不可修改或者只能通过上位机进行修改的</p>
+<img alt="../../_images/usart_protocol_5.jpg" src="./单片机发送数据给串口屏 — 淘晶驰串口屏资料中心 1.1.0-2026-05-13 17_24_21 文档_files/usart_protocol_5.jpg">
+<p>objname（控件名称）是比较特殊的属性，不允许通过指令读写，只能在上位机里更改。</p>
+</section>
+<section id="id3">
+<h2>单片机使用其他协议控制串口屏<a class="headerlink" href="http://wiki2.tjc1688.com/debug/usart_protocol/mcu2tjc.html#id3" title="此标题的永久链接"></a></h2>
+<p>请参考 <a class="reference internal" href="http://wiki2.tjc1688.com/advanced/recmod/index.html#id1"><span class="std std-ref">主动解析模式应用详解</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="http://wiki2.tjc1688.com/debug/usart_protocol/index.html" class="btn btn-neutral float-left" title="串口屏通讯协议" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="http://wiki2.tjc1688.com/debug/usart_protocol/tjc2mcu.html" class="btn btn-neutral float-right" title="串口屏发送数据给单片机" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  
+
+<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备13060496号-1</a>
+<br>
+<!-- <hr /> -->
+<a href="https://www.tjc1688.com/" target="_blank"> 
+<div id="current_date">©2013 - 2026深圳市淘晶驰电子有限公司 www.tjc1688.com
+</div>	
+</a>
+<!-- <hr /> -->
+<!-- <br> -->
+<a href="http://wiki.tjc1688.com/download/development_doc.html" target="_blank">开发文档下载</a>
+&nbsp;
+<a href="http://wiki.tjc1688.com/download/usart_hmi.html" target="_blank">上位机下载</a>
+&nbsp;
+<a href="https://space.bilibili.com/2009481000/channel/collectiondetail?sid=106537" target="_blank">视频教程</a>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+
+</body></html>

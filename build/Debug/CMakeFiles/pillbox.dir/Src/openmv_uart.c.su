@@ -1,0 +1,6 @@
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:55:6:MX_OPENMV_UART_Init	8	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:78:13:ParseOpenmvLine	24	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:123:6:HAL_UART_MspInit_OpenMV	48	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:149:6:vOpenmvTask	48	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:206:6:Esp01_TriggerFallAlert	16	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:219:6:OpenMV_RxCallback	24	static

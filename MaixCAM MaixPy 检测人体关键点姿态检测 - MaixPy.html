@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html -->
+<html lang="zh" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/hm.js.下载"></script><script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async="" src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/tex-mml-chtml.js.下载"></script>
+        
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/pre_main.js.下载"></script><script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/svg.js.下载" charset="UTF-8"></script>
+        
+        <link rel="stylesheet" href="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/prism.min.css" type="text/css">
+        
+        <link rel="stylesheet" href="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/viewer.min.css" type="text/css">
+        
+        <link rel="stylesheet" href="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/dark.css" type="text/css">
+        
+        <link rel="stylesheet" href="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/light.css" type="text/css">
+        
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/jquery.min.js.下载"></script>
+        
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/split.js.下载"></script>
+        
+        <link rel="stylesheet" href="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/style.css" type="text/css">
+        
+        <link rel="stylesheet" href="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/custom.css" type="text/css">
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <link rel="stylesheet" href="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/style(1).css" type="text/css">
+        
+    
+    
+    <title>MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求点赞服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+<script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/clipboard.min.js.下载"></script><script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/tex.js.下载" charset="UTF-8"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="https://wiki.sipeed.com/maixpy/">
+                
+                
+                    <h2>MaixPy</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a href="https://wiki.sipeed.com/">Sipeed Wiki</a></li>
+<li class="active"><a href="https://wiki.sipeed.com/maixpy/doc/zh/index.html">文档</a></li>
+<li class=""><a href="https://wiki.sipeed.com/maixpy/api/index.html">API</a></li>
+<li class=""><a href="https://wiki.sipeed.com/maixpy/doc/zh/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/maixpy"><img src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/github-fill.svg" style="height: 1.5em;vertical-align: middle;">&nbsp;</a></li>
+<li class="sub_items "><a><img src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/language.svg" style="height: 1.5em;vertical-align: middle;">&nbsp;中文</a><ul><li class=""><a href="https://wiki.sipeed.com/maixpy/doc/en/vision/body_key_points.html">English</a></li>
+<li class="active"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper" style="width: calc(17% - 3px);">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/index.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/faq.html"><span class="label">FAQ 常见问题</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">基础</span><span class="sub_indicator"></span></a><ul class="show" style="display: block;">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/upgrade.html"><span class="label">升级和烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/app.html"><span class="label">应用使用-开发-商店</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/maixvision.html"><span class="label">MaixVision 使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/python.html"><span class="label">Python 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/linux_basic.html"><span class="label">Linux 基础知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/python_pkgs.html"><span class="label">添加额外的 Python 包</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/auto_start.html"><span class="label">应用开机自启</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/view_src_code.html"><span class="label">查看 API 对应源码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/basic/picoclaw.html"><span class="label">PicoClaw 使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">基础图像和算法</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/display.html"><span class="label">屏幕使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/camera.html"><span class="label">摄像头使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/image_ops.html"><span class="label">基本图像操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/touchscreen.html"><span class="label">触摸屏使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/find_blobs.html"><span class="label">寻找色块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/line_tracking.html"><span class="label">寻找直线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/qrcode.html"><span class="label">二维码识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/find_barcodes.html"><span class="label">条形码识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/apriltag.html"><span class="label">AprilTag 识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/opencv.html"><span class="label">使用 OpenCV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/gui/i18n.html"><span class="label">I18N 国际化(多语言)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">AI 视觉</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/ai.html"><span class="label">AI 视觉基本知识</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/classify.html"><span class="label">AI 物体分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/yolov5.html"><span class="label">YOLO 物体检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/face_detection.html"><span class="label">人脸及关键点检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/face_landmarks.html"><span class="label">人脸多关键点检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/face_recognition.html"><span class="label">人脸识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/face_emotion.html"><span class="label">人脸表情情绪识别</span><span class=""></span></a></li>
+<li class="active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html"><span class="label">人体关键点检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/segmentation.html"><span class="label">图像语义分割</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/self_learn_classifier.html"><span class="label">自学习分类器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/self_learn_detector.html"><span class="label">自学习检测器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/object_track.html"><span class="label">物体轨迹跟踪和计数</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/ocr.html"><span class="label">OCR 文字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/detect_obb.html"><span class="label">带旋转角度的检测(OBB)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/hand_landmarks.html"><span class="label">手部关键点检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_pose_classification.html"><span class="label">人体姿态分类器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/hand_gesture_classification.html"><span class="label">手势分类器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/depth_anything.html"><span class="label">Depth-Anything 单目深度估计</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/yolo_world.html"><span class="label">YOLO-World 检测任意物体</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/maixhub_train.html"><span class="label">MaixHub 在线训练 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/customize_model_yolov5.html"><span class="label">离线训练 YOLOv5 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/customize_model_yolov8.html"><span class="label">离线训练 YOLO26/YOLO11/YOLOv8 模型</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">AI 听觉</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/record.html"><span class="label">录入音频</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/play.html"><span class="label">播放音频</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/recognize.html"><span class="label">语音实时识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/digit.html"><span class="label">连续中文数字识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/keyword.html"><span class="label">关键词识别</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/synthesis.html"><span class="label">语音合成</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/ai_classify.html"><span class="label">AI 声音分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/audio/deploy_online_recognition.html"><span class="label">部署在线语音识别环境</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">AI 大模型</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/basic.html"><span class="label">大模型使用说明</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/llm_qwen.html"><span class="label">Qwen 大语言模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/llm_deepseek.html"><span class="label">DeepSeek 大语言模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/vlm_internvl.html"><span class="label">InternVL 视觉语言模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/vlm_qwen3.html"><span class="label">Qwen3-VL 视觉语言模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/dlm_lora_sdv1_5.html"><span class="label">LCM-LoRA-SDv1-5 图像生成模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/vlm_smolvlm.html"><span class="label">SmolVLM 视觉语言模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/asr_sensevoice.html"><span class="label">SenseVoice 语音识别模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/asr_whisper.html"><span class="label">Whisper 语音识别模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/mllm/tts_melotts.html"><span class="label">MeloTTS 语音合成模型</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">AI 模型转换和移植</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/ai_model_converter/maixcam2.html"><span class="label">ONNX 模型转给 MaixCAM2 用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/ai_model_converter/maixcam.html"><span class="label">ONNX 模型转给 MaixCAM 用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/pro/datasets.html"><span class="label">哪里找模型和数据集</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/pro/customize_model.html"><span class="label">移植新模型</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">视频</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/video/record.html"><span class="label">录像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/video/play.html"><span class="label">播放视频</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/video/jpeg_streaming.html"><span class="label">JPEG 串流</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/video/rtsp_streaming.html"><span class="label">RTSP 串流</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/video/rtmp_streaming.html"><span class="label">RTMP 串流</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/video/uvc_streaming.html"><span class="label">UVC 串流</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/video/webrtc_streaming.html"><span class="label">WebRTC 串流</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">网络通信</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/network/network_settings.html"><span class="label">网络设置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/network/http.html"><span class="label">http 网络通信</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/network/socket.html"><span class="label">socket 网络通信</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/network/mqtt.html"><span class="label">MQTT 网络通信</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/network/websocket.html"><span class="label">websocket 网络通信</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/network/flask.html"><span class="label">Flask Web 服务器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">通信协议</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/comm/maix_protocol.html"><span class="label">Maix 应用通信协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/comm/modbus.html"><span class="label">Modbus 通信协议</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">片上外设</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/pinmap.html"><span class="label">PINMAP IO 功能映射</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/gpio.html"><span class="label">GPIO 和 点灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/key.html"><span class="label">Key 按键事件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/uart.html"><span class="label">UART 串口</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/i2c.html"><span class="label">I2C</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/pwm.html"><span class="label">PWM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/spi.html"><span class="label">SPI</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/wdt.html"><span class="label">WDT 看门狗</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/adc.html"><span class="label">ADC 模数转换</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/hid.html"><span class="label">作为 USB HID 设备</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">片外模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/kit/microscope.html"><span class="label">显微镜套件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/ahrs.html"><span class="label">IMU AHRS 姿态检测</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/temp_humi.html"><span class="label">温湿度传感器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/rtc.html"><span class="label">RTC 时钟模块使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/tmc2209.html"><span class="label">步进电机 TMC2209</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/tof.html"><span class="label">TOF 测距</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/thermal_cam.html"><span class="label">热成像摄像头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/pmu.html"><span class="label">电源管理单元</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/fp5510.html"><span class="label">音圈电机 FP5510</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/spilcd.html"><span class="label">SPI LCD 屏幕</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/modules/bluetooth.html"><span class="label">蓝牙</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">项目实战和开源项目</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/projects/index.html"><span class="label">介绍和开源项目汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/projects/line_tracking_robot.html"><span class="label">小车巡线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/projects/face_tracking.html"><span class="label">人脸追踪2轴云台</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">进阶</span><span class="sub_indicator"></span></a><ul class="show" style="display: block;">
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/pro/memory.html"><span class="label">内存使用说明</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/source_code/contribute.html"><span class="label">贡献文档和代码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/source_code/build.html"><span class="label">构建 MaixPy 源码</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/source_code/faq.html"><span class="label">MaixPy 源码 FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/source_code/add_c_module.html"><span class="label">使用 C/C++ 写一个模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/source_code/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="https://wiki.sipeed.com/maixpy/doc/zh/pro/compile_os.html"><span class="label">编译系统</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div class="gutter gutter-horizontal" style="width: 3px;"><div class="gutter_icon"></div></div><div id="article" style="width: calc(83% + 0px);">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixCAM MaixPy 检测人体关键点姿态检测</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/MaixPy/blob/main/docs/doc/zh/vision/body_key_points.md" target="_blank">
+                                    <span id="editPage">编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        <div id="print_page"></div></div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E7%AE%80%E4%BB%8B"><span class="sequence">一、</span>简介<a class="anchor" href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#%E7%AE%80%E4%BB%8B">#</a></h2>
+<p>使用 MaixPy 可以轻松检测人体关节的关键点的坐标，用在姿态检测比如坐姿检测，体感游戏输入等。</p>
+<p>MaixPy 实现了基于 <a href="https://github.com/ultralytics/ultralytics" target="_blank">YOLOv8-Pose / YOLO11-Pose</a> 的人体姿态检测，可以检测到人体<code>17</code>个关键点。</p>
+<p><img src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/body_keypoints.jpg" alt=""></p>
+<h2 id="%E4%BD%BF%E7%94%A8"><span class="sequence">二、</span>使用<a class="anchor" href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#%E4%BD%BF%E7%94%A8">#</a></h2>
+<p>使用 MaixPy 的 <code>maix.nn.YOLOv8</code> 或者 <code>maix.nn.YOLO11</code> 类可以轻松实现：</p>
+
+<div class="code-toolbar"><pre class="language-none line-numbers language-python"><code class="language-python"><span class="token keyword keyword-from">from</span> maix <span class="token keyword keyword-import">import</span> camera<span class="token punctuation">,</span> display<span class="token punctuation">,</span> image<span class="token punctuation">,</span> nn<span class="token punctuation">,</span> app
+
+detector <span class="token operator">=</span> nn<span class="token punctuation">.</span>YOLO11<span class="token punctuation">(</span>model<span class="token operator">=</span><span class="token string">"/root/models/yolo11n_pose.mud"</span><span class="token punctuation">,</span> dual_buff <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment"># detector = nn.YOLOv8(model="/root/models/yolov8n_pose.mud", dual_buff = True)</span>
+
+cam <span class="token operator">=</span> camera<span class="token punctuation">.</span>Camera<span class="token punctuation">(</span>detector<span class="token punctuation">.</span>input_width<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> detector<span class="token punctuation">.</span>input_height<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> detector<span class="token punctuation">.</span>input_format<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+disp <span class="token operator">=</span> display<span class="token punctuation">.</span>Display<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-while">while</span> <span class="token keyword keyword-not">not</span> app<span class="token punctuation">.</span>need_exit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    img <span class="token operator">=</span> cam<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    objs <span class="token operator">=</span> detector<span class="token punctuation">.</span>detect<span class="token punctuation">(</span>img<span class="token punctuation">,</span> conf_th <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">,</span> iou_th <span class="token operator">=</span> <span class="token number">0.45</span><span class="token punctuation">,</span> keypoint_th <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> obj <span class="token keyword keyword-in">in</span> objs<span class="token punctuation">:</span>
+        img<span class="token punctuation">.</span>draw_rect<span class="token punctuation">(</span>obj<span class="token punctuation">.</span>x<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>y<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>w<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>h<span class="token punctuation">,</span> color <span class="token operator">=</span> image<span class="token punctuation">.</span>COLOR_RED<span class="token punctuation">)</span>
+        msg <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>detector<span class="token punctuation">.</span>labels<span class="token punctuation">[</span>obj<span class="token punctuation">.</span>class_id<span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>obj<span class="token punctuation">.</span>score<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span>
+        img<span class="token punctuation">.</span>draw_string<span class="token punctuation">(</span>obj<span class="token punctuation">.</span>x<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>y<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> color <span class="token operator">=</span> image<span class="token punctuation">.</span>COLOR_RED<span class="token punctuation">)</span>
+        detector<span class="token punctuation">.</span>draw_pose<span class="token punctuation">(</span>img<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>points<span class="token punctuation">,</span> <span class="token number">8</span> <span class="token keyword keyword-if">if</span> detector<span class="token punctuation">.</span>input_width<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">480</span> <span class="token keyword keyword-else">else</span> <span class="token number">4</span><span class="token punctuation">,</span> image<span class="token punctuation">.</span>COLOR_RED<span class="token punctuation">)</span>
+    disp<span class="token punctuation">.</span>show<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>另外代码也在<a href="https://github.com/sipeed/MaixPy/tree/main/examples/vision/ai_vision" target="_blank">MaixPy/examples/vision</a>目录下可以找到。</p>
+<p>可以看到因为用了<code>YOLOv8-Pose</code> 所以这里直接用了<code>YOLOv8</code>这个类，和<code>YOLOv8</code>物体检测模型只是模型文件不同， <code>YOLO11</code>同理，然后就是<code>detect</code>函数返回的结果多了<code>points</code>值，是一个<code>int</code>类型的<code>list</code>列表，一共<code>17</code>个点，按次序依次排列，比如第一个值是鼻子的 x 坐标， 第二个值是鼻子的 y 坐标，依次为：</p>
+
+<div class="code-toolbar"><pre class="language-none line-numbers language-python"><code class="language-python"><span class="token number">1</span><span class="token punctuation">.</span> 鼻子（Nose）
+<span class="token number">2</span><span class="token punctuation">.</span> 左眼（Left Eye）
+<span class="token number">3</span><span class="token punctuation">.</span> 右眼（Right Eye）
+<span class="token number">4</span><span class="token punctuation">.</span> 左耳（Left Ear）
+<span class="token number">5</span><span class="token punctuation">.</span> 右耳（Right Ear）
+<span class="token number">6</span><span class="token punctuation">.</span> 左肩（Left Shoulder）
+<span class="token number">7</span><span class="token punctuation">.</span> 右肩（Right Shoulder）
+<span class="token number">8</span><span class="token punctuation">.</span> 左肘（Left Elbow）
+<span class="token number">9</span><span class="token punctuation">.</span> 右肘（Right Elbow）
+<span class="token number">10</span><span class="token punctuation">.</span> 左手腕（Left Wrist）
+<span class="token number">11</span><span class="token punctuation">.</span> 右手腕（Right Wrist）
+<span class="token number">12</span><span class="token punctuation">.</span> 左髋（Left Hip）
+<span class="token number">13</span><span class="token punctuation">.</span> 右髋（Right Hip）
+<span class="token number">14</span><span class="token punctuation">.</span> 左膝（Left Knee）
+<span class="token number">15</span><span class="token punctuation">.</span> 右膝（Right Knee）
+<span class="token number">16</span><span class="token punctuation">.</span> 左脚踝（Left Ankle）
+<span class="token number">17</span><span class="token punctuation">.</span> 右脚踝（Right Ankle）
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>如果某些部位被遮挡，那么值为<code>-1</code>。</p>
+<h2 id="%E6%9B%B4%E5%A4%9A%E8%BE%93%E5%85%A5%E5%88%86%E8%BE%A8%E7%8E%87%E6%A8%A1%E5%9E%8B"><span class="sequence">三、</span>更多输入分辨率模型<a class="anchor" href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#%E6%9B%B4%E5%A4%9A%E8%BE%93%E5%85%A5%E5%88%86%E8%BE%A8%E7%8E%87%E6%A8%A1%E5%9E%8B">#</a></h2>
+<p>默认的模型是输入是<code>320x224</code>分辨率，如果你希望使用更大分辨率的模型，可以到 MaixHub 模型库下载并传输到设备使用:</p>
+<ul>
+<li>YOLOv8-Pose: <a href="https://maixhub.com/model/zoo/401" target="_blank">https://maixhub.com/model/zoo/401</a></li>
+<li>YOLO11-Pose: <a href="https://maixhub.com/model/zoo/454" target="_blank">https://maixhub.com/model/zoo/454</a></li>
+</ul>
+<p>分辨率越大理论上精度越高但是运行速度更低，根据你的使用场景选择，另外如果提供的分辨率不满足你的要求你也可以自己到 <a href="https://github.com/ultralytics/ultralytics" target="_blank">YOLOv8-Pose / YOLO11-Pose</a> 使用摸新训练源码导出自己的onnx模型，然后转换为 MaixCAM 支持的模型（方法见后面的文章）。</p>
+<h2 id="dual_buff-%E5%8F%8C%E7%BC%93%E5%86%B2%E5%8C%BA%E5%8A%A0%E9%80%9F"><span class="sequence">四、</span>dual_buff 双缓冲区加速<a class="anchor" href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#dual_buff-%E5%8F%8C%E7%BC%93%E5%86%B2%E5%8C%BA%E5%8A%A0%E9%80%9F">#</a></h2>
+<p>你可能注意到这里模型初始化使用了<code>dual_buff</code>（默认值就是 <code>True</code>），使能 <code>dual_buff</code> 参数可以加快运行效率，提高帧率，具体原理和使用注意点见 <a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/dual_buff.html">dual_buff 介绍</a>。</p>
+
+                        
+                    </div>
+                <div class="thumbs-message"><div class="thumbs-message-content"></div></div><div id="thumbs_up_container"><button class="thumbs-up"><img src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/up.svg" class="thumbs-up-icon"><span class="thumbs-up-label">有帮助</span><span class="thumbs-up-count">(3)</span></button><button class="thumbs-down"><img src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/up.svg" class="thumbs-down-icon"><span class="thumbs-down-label">待改进</span><span class="thumbs-down-count"></span></button></div></div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/face_emotion.html">
+                            <span class="icon"></span>
+                            <span class="label">人脸表情情绪识别</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/segmentation.html">
+                            <span class="label">图像语义分割</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#%E7%AE%80%E4%BB%8B" class="toc-link node-name--H2  is-active-link">简介</a></li><li class="toc-list-item"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#%E4%BD%BF%E7%94%A8" class="toc-link node-name--H2 ">使用</a></li><li class="toc-list-item"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#%E6%9B%B4%E5%A4%9A%E8%BE%93%E5%85%A5%E5%88%86%E8%BE%A8%E7%8E%87%E6%A8%A1%E5%9E%8B" class="toc-link node-name--H2 ">更多输入分辨率模型</a></li><li class="toc-list-item"><a href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#dual_buff-%E5%8F%8C%E7%BC%93%E5%86%B2%E5%8C%BA%E5%8A%A0%E9%80%9F" class="toc-link node-name--H2 ">dual_buff 双缓冲区加速</a></li></ol></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="https://wiki.sipeed.com/maixpy/doc/zh/vision/body_key_points.html#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://wiki.sipeed.com/">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com/">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a href="https://wiki.sipeed.com/maixpy/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a></a><a>微信公众号</a><img src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/wechat.png">
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a href="https://wiki.sipeed.com/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com/">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/mermaid.min.js.下载"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/tocbot.min.js.下载"></script>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/main.js.下载"></script>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/viewer.min.js.下载"></script>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/prism.min.js.下载"></script>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/search_main.js.下载"></script>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/custom.js.下载"></script>
+    
+        <script src="./MaixCAM MaixPy 检测人体关键点姿态检测 - MaixPy_files/main(1).js.下载"></script>
+    
+
+
+<div id="search_wrapper">        <div>            <div id="search_content">                <div id="search_title">                    <div>                        <input id="search_input" placeholder="输入关键词，多关键词空格隔开">                    </div>                </div>                <div id="search_result">                    <div id="search_result_name"></div>                    <div id="search_result_content"></div>                </div>            </div>        </div><a class="close"></a></div></body></html>

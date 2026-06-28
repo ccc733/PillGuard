@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\完成设计的产品\(MCUDEV)-STM32开发板系列\(MCUDEV)STM32_F4XX\STM32_F407ZET6最小系统--客户资料-1510\1，STM32F4xx标准例程\实验3 按键输入实验\USER\KEY.uvproj
+Project File Date:  10/25/2015
+
+<h2>Output:</h2>
+Build target 'KEY'
+compiling main.c...
+linking...
+Program Size: Code=5668 RO-data=424 RW-data=52 ZI-data=1836  
+FromELF: creating hex file...
+"..\OBJ\KEY.axf" - 0 Errors, 0 Warning(s).

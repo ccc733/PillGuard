@@ -1,0 +1,4 @@
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:16:6:I2C3_BusRecover	64	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:56:6:MX_I2C3_Init	16	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:100:6:HAL_I2C_MspInit	48	static
+C:/Users/csr/Documents/yao_he002/Src/i2c.c:122:6:HAL_I2C_MspDeInit	16	static

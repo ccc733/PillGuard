@@ -1,0 +1,10 @@
+C:/Users/csr/Documents/yao_he002/Src/main.c:76:13:HMI_SendRemindingDiag	80	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:93:13:ResetReminderRuntimeFlags	4	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:102:19:SendVoiceEvent	16	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:107:6:vMainHmiTask	160	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:590:6:vVoiceTask	24	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:624:6:vSensorTask	128	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:698:6:HAL_GPIO_EXTI_Callback	16	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:712:5:main	8	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:746:13:SystemClock_Config	88	static
+C:/Users/csr/Documents/yao_he002/Src/main.c:803:6:Error_Handler	8	static

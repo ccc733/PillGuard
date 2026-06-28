@@ -1,0 +1,5 @@
+C:/Users/csr/Documents/yao_he002/Src/debug_rgb.c:15:6:RGB_Init	32	static
+C:/Users/csr/Documents/yao_he002/Src/debug_rgb.c:37:6:RGB_SetRaw	16	static
+C:/Users/csr/Documents/yao_he002/Src/debug_rgb.c:51:6:RGB_Set	16	static
+C:/Users/csr/Documents/yao_he002/Src/debug_rgb.c:69:6:RGB_Flash	16	static
+C:/Users/csr/Documents/yao_he002/Src/debug_rgb.c:79:6:RGB_Blink	24	static

@@ -1,0 +1,57 @@
+# 本作品采用MIT许可证授权。
+# 版权所有 (c) 2013-2023 OpenMV LLC。保留所有权利。
+# https://github.com/openmv/openmv/blob/master/LICENSE
+#
+# 人脸检测示例
+#
+# 此示例展示了OpenMV Cam内置的人脸检测功能。
+#
+# 人脸检测通过在图像上使用Haar Cascade特征检测器来实现。
+# Haar Cascade是一系列简单的区域对比检查。对于内置的
+# 正面人脸检测器，有25个阶段的检查，每个阶段都有
+# 数百个检查。Haar Cascades运行速度快，因为只有在
+# 前一阶段通过后才会评估后一阶段。此外，您的OpenMV Cam使用
+# 一种称为积分图像的数据结构，以恒定时间快速执行每个区域
+# 对比检查（这是特征检测的原因）
+# 灰度模式仅用于满足积分图像的空间需求）。
+
+import sensor
+import time
+import image
+
+# 重置传感器
+sensor.reset()
+
+# 传感器设置
+sensor.set_contrast(3)
+sensor.set_gainceiling(16)
+# HQVGA 和灰度模式最适合面部追踪。
+sensor.set_framesize(sensor.HQVGA)
+sensor.set_pixformat(sensor.GRAYSCALE)
+
+# 加载 Haar 级联
+# 默认情况下，这将使用所有阶段，较低的阶段速度更快但准确性较低。
+face_cascade = image.HaarCascade("/rom/haarcascade_frontalface.cascade", stages=25)
+print(face_cascade)
+
+# FPS时钟
+clock = time.clock()
+
+while True:
+    clock.tick()
+
+    # 捕获快照
+    img = sensor.snapshot()
+
+    # 查找对象。
+    # 注意：较低的缩放因子会更多地缩小图像并检测较小的对象。
+    # 较高的阈值会导致更高的检测率，但也会产生更多的误报。
+    objects = img.find_features(face_cascade, threshold=0.75, scale_factor=1.25)
+
+    # 绘制对象
+    for r in objects:
+        img.draw_rectangle(r)
+
+    # 打印FPS。
+    # 注意：实际帧率更高，流式传输帧缓冲区会使其变慢。
+    print(clock.fps())

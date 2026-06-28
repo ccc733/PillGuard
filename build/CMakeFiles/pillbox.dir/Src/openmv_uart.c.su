@@ -1,0 +1,8 @@
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:102:17:CRC16_IBM	32	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:123:17:LE_To_U32	16	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:131:17:LE_To_U16	16	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:140:6:MX_OPENMV_UART_Init	8	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:163:13:ParseProtoByte	104	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:297:6:vOpenmvTask	56	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:379:6:Esp01_TriggerFallAlert	16	static
+C:/Users/csr/Documents/yao_he002/Src/openmv_uart.c:392:6:OpenMV_RxCallback	16	static

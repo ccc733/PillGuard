@@ -1,0 +1,3 @@
+C:/Users/csr/Documents/yao_he002/Src/hall_sensor.c:20:6:Hall_Init	56	static
+C:/Users/csr/Documents/yao_he002/Src/hall_sensor.c:63:10:Hall_GetAdc	16	static
+C:/Users/csr/Documents/yao_he002/Src/hall_sensor.c:80:13:Hall_GetState	16	static

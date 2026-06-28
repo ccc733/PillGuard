@@ -1,0 +1,5 @@
+-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\HARDWARE\LCD -I..\HARDWARE\KEY -I..\HARDWARE\SRAM -I..\HARDWARE\SDIO -I..\MALLOC -I..\HARDWARE\SPI -I..\HARDWARE\W25QXX -I..\FWLIB\inc -I..\HARDWARE\24CXX -I..\HARDWARE\IIC -I..\HARDWARE\I2S -I..\HARDWARE\WM8978 -I..\APP -I..\AUDIOCODEC\wav -I..\USB\USB_APP -I..\USB\STM32_USB_OTG_Driver\inc -I..\USB\STM32_USB_Device_Library\Core\inc -I..\USB\STM32_USB_Device_Library\Class\audio\inc
+-I C:\Keil\ARM\RV31\INC
+-I C:\Keil\ARM\CMSIS\Include
+-I Device\Include
+-DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_USB_OTG_FS -DSTM32F4XX -o ..\obj\sdio_sdcard.o --omf_browse ..\obj\sdio_sdcard.crf --depend ..\obj\sdio_sdcard.d "..\HARDWARE\SDIO\sdio_sdcard.c"

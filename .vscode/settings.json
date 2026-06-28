@@ -1,0 +1,33 @@
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.compilerPath": "arm-none-eabi-gcc",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/Inc",
+        "${workspaceFolder}/Drivers/STM32G4xx_HAL_Driver/Inc",
+        "${workspaceFolder}/Drivers/CMSIS/Include",
+        "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32G4xx/Include",
+        "${workspaceFolder}/Middlewares/Third_Party/FreeRTOS/Source/include",
+        "${workspaceFolder}/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+    ],
+    "C_Cpp.default.defines": [
+        "USE_HAL_DRIVER",
+        "STM32G431xx",
+        "_DEBUG"
+    ],
+    "C_Cpp.intelliSenseEngine": "default",
+    "cmake.configureOnOpen": true,
+    "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
+    "cortex-debug.armToolchainPath": "",
+    "cortex-debug.openocdPath": "openocd",
+    "cortex-debug.servertype": "openocd",
+    "cortex-debug.configFiles": [
+        "interface/stlink.cfg",
+        "target/stm32g4x.cfg"
+    ],
+    "cortex-debug.svdFile": "${workspaceFolder}/.vscode/STM32G431.svd",
+    "[c]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": null
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:system"
+}

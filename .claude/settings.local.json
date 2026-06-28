@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"C:/Users/csr/Desktop/6、STM32F103C8T6例程/\")",
+      "Read(//c/Users/csr/Desktop/6、STM32F103C8T6例程/**)",
+      "Bash(cmake --build build)",
+      "Bash(arm-none-eabi-objcopy -O binary yao_he002.elf yao_he002.bin)",
+      "Bash(cp \"c:\\\\Users\\\\csr\\\\Documents\\\\yao_he002\\\\build\\\\yao_he002.bin\" \"c:\\\\Users\\\\csr\\\\Desktop\\\\yao_he002.bin\")",
+      "Read(//c/Users/csr/Desktop/**)",
+      "Bash(cd \"c:\\\\Users\\\\csr\\\\Documents\\\\yao_he002\\\\build\" && arm-none-eabi-objcopy -O binary yao_he002.elf yao_he002.bin && cp yao_he002.bin \"c:\\\\Users\\\\csr\\\\Desktop\\\\yao_he002.bin\" && ls -la \"c:\\\\Users\\\\csr\\\\Desktop\\\\yao_he002.bin\")",
+      "Bash(which unrar *)",
+      "Read(//usr/**)",
+      "Bash(pip list *)",
+      "Bash(pip3 list *)",
+      "Bash(unrar t *)",
+      "Bash(F:/arm/bin/arm-none-eabi-objcopy.exe -O binary \"c:/Users/csr/Documents/yao_he002/build/Debug/yao_he002.elf\" \"c:/Users/csr/Documents/yao_he002/build/Debug/yao_he002.bin\")",
+      "Bash(cmake --build build/Debug --config Debug)",
+      "Bash(F:/arm/bin/arm-none-eabi-objcopy.exe -O binary build/Debug/yao_he002.elf build/Debug/yao_he002.bin)",
+      "WebSearch",
+      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 available'\\)\")",
+      "Bash(python -c \"import pikepdf; print\\('pikepdf available'\\)\")",
+      "Bash(git diff *)",
+      "Read(//dev/**)",
+      "Bash(python3)",
+      "Bash(python3 -c ' *)",
+      "Bash(ninja)",
+      "Bash(sed -i 's/N=4: n_time.txt ASCII/N=4: n_time.val 小端整型/' Src/hmi_screen.c)",
+      "Bash(sed -i 's/支持命令: 0x02\\(设闹钟,4字节ASCII\\),/支持命令: 0x02\\(设闹钟,4字节小端整型\\),/' Src/hmi_screen.c)",
+      "Bash(cmake --build \"c:/Users/csr/Documents/yao_he002/build/Debug\")",
+      "Bash(arm-none-eabi-objcopy -O binary \"c:/Users/csr/Documents/yao_he002/build/Debug/pillbox.elf\" \"c:/Users/csr/Documents/yao_he002/build/Debug/pillbox.bin\")",
+      "WebFetch(domain:)",
+      "Bash(cmake --build \"c:/Users/csr/Documents/yao_he002/build\" --target all)",
+      "Bash(arm-none-eabi-objcopy -O binary \"c:/Users/csr/Documents/yao_he002/build/pillbox.elf\" \"c:/Users/csr/Documents/yao_he002/build/pillbox.bin\")",
+      "Bash(python -c \"import rarfile; print\\('rarfile available'\\)\")",
+      "Bash(powershell -Command \"Compress-Archive -Path 'C:\\\\Users\\\\csr\\\\Desktop\\\\重点代码' -DestinationPath 'C:\\\\Users\\\\csr\\\\Desktop\\\\重点代码.zip' -Force\")",
+      "Bash(python \"C:/Users/csr/Desktop/copy_files.py\")",
+      "Bash(python \"C:/Users/csr/Desktop/add_docs.py\")",
+      "Bash(python -c ' *)",
+      "Bash(python \"C:/Users/csr/Desktop/rebuild.py\")",
+      "Bash(python \"C:/Users/csr/Desktop/build_code.py\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\csr\\Desktop"
+    ]
+  }
+}
