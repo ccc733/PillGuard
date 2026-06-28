@@ -1,5 +1,0 @@
--c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\BEEP -I..\HARDWARE\KEY
--I C:\Keil\ARM\RV31\INC
--I C:\Keil\ARM\CMSIS\Include
--I Device\Include
--DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -o ..\obj\os_mutex.o --omf_browse ..\obj\os_mutex.crf --depend ..\obj\os_mutex.d "..\UCOSII\CORE\os_mutex.c"

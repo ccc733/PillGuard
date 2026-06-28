@@ -1,6 +1,0 @@
--c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\HARDWARE\LCD -I..\HARDWARE\KEY -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\FWLIB\inc -I..\HARDWARE\TOUCH -I..\HARDWARE\BEEP -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\TPAD -I..\MALLOC
--I C:\Keil\ARM\RV31\INC
--I C:\Keil\ARM\CMSIS\Include
--I C:\Keil\ARM\Inc\ST\STM32F4xx
--DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DSTM32F40XX
--o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d "..\HARDWARE\KEY\key.c"
